@@ -1,100 +1,137 @@
-
-
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <meta charset="UTF-8">
-    <!-- configura a codificação de caracteres do navegador para o UTF-8-->
     <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
-    <!-- Adiciona o ícone de aba de navegador-->
     <link rel="stylesheet" href="css/conteudo.css">
-    <!--link rel="stylesheet" href="css/menulateral.css"-->
     <title>HOME - IFSP - Pirituba</title>
-    <!-- Adiciona o título na aba do navegador-->
     <script src="js/disabling.js"></script>
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
 
+        .Slides {
+            display: none;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
 </head>
 
 <body>
 
-    <header id="cabecalho">
-        <!-- Indica o cabeçalho do nosso documento-->
+<header id="cabecalho">
+    <nav>
+        <object width="100%" height="200px" data="menu.html"></object>
+    </nav>
+</header>
 
-        <nav>
-            <object width="100%" height="200px" data="menu.html"></object>
-        </nav>
-
-    </header>
-
-    <!-- indica que é o conteúdo principal dessa página -->
-    <main id="conteudo">
-        <div class="slideshow-container">
-            <div class="Slides">
-                <div class="numbertext">1 / 3 </div>
-                <img src="Imagens/A.png" style="width:100%">
-            </div>
-            
-            <div class="Slides">
-                <div class="numbertext">2 / 3</div>
-                <img src="Imagens/B.jpg" style="width:100%">
-            </div>
-            
-            <div class="Slides">
-                <div class="numbertext">3 / 3</div>
-                <img src="Imagens/C.jpg" style="width:100%">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-        
-        <!-- The dots/circles -->
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+<main id="conteudo">
+    <div class="slideshow-container">
+        <div class="Slides">
+            <div class="numbertext">1 / 3</div>
+            <img src="Imagens/A.png" style="width:100%">
         </div>
 
-        <div class="grid">
-            <div class="item">
-                <img src="Imagens/eleicoes.jpg" class=""/>
-
-                <h3>Radar IFSP: informe-se sobre as eleições no dia 13 de outubro</h3>
-                <p>Todos os alunos e servidores podem votar; acesse aqui a cabine de votação online do seu câmpus</p>
-            </div>
-
-            <div class="item">
-                <img src="Imagens/snct.jpg" class=""/>
-
-                <h3>IFSP: SNCT reúne atividades entre 19 e 24 de outubro</h3>
-                <p>Programação reunirá iniciativas para aproximar pesquisadores e atividades culturais</p>
-            </div>
-
-            <div class="item">
-                <img src="Imagens/residencia.png" class=""/>
-
-                <h3>IFSP oferece bolsa aos voluntários da Residência Pedagógica</h3>
-                <p>Bolsa de R$ 400,00 será paga pelo período de três meses</p>
-            </div>
-
-            <div class="item">
-                <img src="Imagens/maratona.jpeg" class=""/>
-
-                <h3>Inscrições abertas para a III Maratona InterIF</h3>
-                <p>Maratona de programação do IFSP será realizada online, no dia 31 de outubro; Inscrições até 26 de outubro</p>
-            </div>
+        <div class="Slides">
+            <div class="numbertext">2 / 3</div>
+            <img src="Imagens/B.jpg" style="width:100%">
         </div>
 
-    </main>
+        <div class="Slides">
+            <div class="numbertext">3 / 3</div>
+            <img src="Imagens/C.jpg" style="width:100%">
+        </div>
 
-    <footer>
-        <br><br>
-        <object width="100%" height="200px" data="rodape.html"></object>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
 
-    </footer>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</main>
+
+<footer>
+    <br><br>
+    <object width="100%" height="200px" data="rodape.html"></object>
+</footer>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("Slides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+</script>
 
 </body>
 
